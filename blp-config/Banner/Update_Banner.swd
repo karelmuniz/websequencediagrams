@@ -1,0 +1,9 @@
+title Update Banner (PUT)
+SSP->SSP API: PUT Banner
+SSP API->Contentful: PUT contentful (image files, title)
+Contentful-->SSP API: OK (image files, title, URL, body)
+SSP API->BLP Config: PUT banner (with content_id from contentful)
+BLP Config->Database: Store cache_content (image url, titles, url, body)
+Database-->BLP Config: Stored
+BLP Config-->SSP API: HTTP/200 Updated
+SSP API-->SSP: HTTP/200 Updated

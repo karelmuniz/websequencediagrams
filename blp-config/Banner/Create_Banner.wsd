@@ -1,0 +1,11 @@
+title Create Banner (POST)
+SSP->SSP API: POST Banner
+SSP API->Contentful: Upload contentful (image files, title)
+Contentful-->SSP API: OK (image files, title, URL, body)
+SSP API->BLP Config: POST banner (with content_id from contentful)
+BLP Config->Contentful: Retrieve Content
+Contentful-->BLP Config: Return (image url, titles, url, body)
+BLP Config->Database: Store cache_content (image url, titles, url, body)
+Database-->BLP Config: Stored
+BLP Config-->SSP API: HTTP/201 Created
+SSP API-->SSP: HTTP/201 Created

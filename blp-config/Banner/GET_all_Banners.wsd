@@ -1,0 +1,9 @@
+title Get all Banners for program (GET)
+PWA->CX API: GET Banners for program
+CX API->BLP Config: Get Banners for program
+BLP Config->Database: Retrieve banners
+Database->BLP Config: Return banners
+BLP Config-->CX API: Return banners for program
+CX API-->PWA: Return banners for program (content with image urls / titles)
+PWA->Contentful: Get image by content image url
+Contentful-->PWA: Return image file
